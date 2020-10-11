@@ -304,21 +304,16 @@ namespace SRTPluginUIRECVXDirectXOverlay
             else
                 healthBrush = _green;
 
-            int colWidth = 216;
-
-            int alignX = 10;
-            int alignY = 10;
-
-            int baseX = alignX;
-            int baseY = alignY;
-
-            int offsetX = baseX;
-            int offsetY = baseY;
-
-            int xWidth = colWidth;
+            int xWidth = 216;
 
             int yHeight = 29;
             int yMargin = 10;
+
+            int baseX = 10;
+            int baseY = 10;
+
+            int offsetX = baseX;
+            int offsetY = baseY;
 
             DrawProgressBar(_darkergrey, healthBrush, offsetX, offsetY, xWidth, yHeight, _gameMemory.Player.DisplayHP, _gameMemory.Player.MaximumHP);
             DrawText(_consolas14Bold, _white, offsetX + 5, offsetY + 6, String.Format("{0} - {1}", _gameMemory.Player.HealthMessage, _gameMemory.Player.StatusName));
@@ -379,7 +374,7 @@ namespace SRTPluginUIRECVXDirectXOverlay
                 }
             }
 
-            offsetX += colWidth + 4;
+            offsetX += xWidth + 4;
             offsetY = baseY;
 
             if (Config.ShowInventory || Config.ShowEquipment)
