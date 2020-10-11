@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Library</OutputType>
+    <UseWPF>true</UseWPF>
+    <Platforms>x64</Platforms>
+    <Authors>Kapdap</Authors>
+    <Company>Kapdap</Company>
+    <Product>Resident Evil: Code: Veronica DirectX Overlay User Interface Plugin</Product>
+    <Description>A user-interface plugin to display the values provided by the Resident Evil: Code: Veronica Memory Provider Plugin in a DirectX overlay.</Description>
+    <Copyright>Copyright © 2020 Kapdap</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/kapdap/re-cvx-srt-ui-directx-overlay</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>speedrun</PackageTags>
+    <Version>0.9.0.0</Version>
+    <FileVersion>0.9.0.0</FileVersion>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+    <LangVersion>latest</LangVersion>
+    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+    <CopyDestionationPath>$(SolutionDir)..\SRTHost\SRTHost\bin\$(Configuration)\netcoreapp3.1\plugins</CopyDestionationPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GameOverlay.Net" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\re-cvx-srt-provider\SRTPluginProviderRECVX\SRTPluginProviderRECVX.csproj" />
+    <ProjectReference Include="..\..\SRTHost\SRTPluginBase\SRTPluginBase.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <Target Name="CopyOutputToDestination" AfterTargets="AfterBuild">
+    <ItemGroup>
+      <OutputFiles Include="$(OutDir)**\*"></OutputFiles>
+    </ItemGroup>
+    <Message Text="Copying files: @(OutputFiles)" Importance="high" />
+    <Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(CopyDestionationPath)\$(ProjectName)\%(RecursiveDir)" OverwriteReadOnlyFiles="true"></Copy>
+  </Target>
+</Project>
