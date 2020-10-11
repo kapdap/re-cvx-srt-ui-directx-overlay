@@ -293,7 +293,7 @@ namespace SRTPluginUIRECVXDirectXOverlay
 
             if (!_gameMemory.Player.IsAlive)
                 healthBrush = _red;
-            else if (_gameMemory.Player.IsPoison)
+            else if (_gameMemory.Player.IsPoison || _gameMemory.Player.IsGassed)
                 healthBrush = _violet;
             else if (_gameMemory.Player.IsCautionYellow)
                 healthBrush = _gold;
@@ -335,28 +335,28 @@ namespace SRTPluginUIRECVXDirectXOverlay
 
             if (Config.Debug)
             {
-                textSize = DrawText(_consolas14Bold, _grey, offsetX, offsetY, String.Format("T: {0:D10}", _gameMemory.IGT.RunningTimer.ToString()));
+                textSize = DrawText(_consolas16Bold, _grey, offsetX, offsetY, String.Format("T: {0:0000000000}", _gameMemory.IGT.RunningTimer.ToString("D10")));
                 offsetY += (int)textSize.Y;
 
-                textSize = DrawText(_consolas14Bold, _grey, offsetX, offsetY, String.Format("C: {0}", _gameMemory.Version.Code));
+                textSize = DrawText(_consolas16Bold, _grey, offsetX, offsetY, String.Format("C: {0}", _gameMemory.Version.Code));
                 offsetY += (int)textSize.Y;
 
-                textSize = DrawText(_consolas14Bold, _grey, offsetX, offsetY, String.Format("P: {0}", _gameMemory.Emulator.ProcessName));
+                textSize = DrawText(_consolas16Bold, _grey, offsetX, offsetY, String.Format("P: {0}", _gameMemory.Emulator.ProcessName));
                 offsetY += (int)textSize.Y;
 
-                textSize = DrawText(_consolas14Bold, _grey, offsetX, offsetY, String.Format("I: {0}", _gameMemory.Emulator.Id.ToString()));
+                textSize = DrawText(_consolas16Bold, _grey, offsetX, offsetY, String.Format("I: {0}", _gameMemory.Emulator.Id.ToString()));
                 offsetY += (int)textSize.Y + yMargin;
             }
 
             if (Config.ShowStatistics)
             {
-                textSize = DrawText(_consolas14Bold, _white, offsetX, offsetY, String.Format("Saves: {0}", _gameMemory.Player.Saves.ToString()));
+                textSize = DrawText(_consolas16Bold, _white, offsetX, offsetY, String.Format("Saves: {0}", _gameMemory.Player.Saves.ToString()));
                 offsetY += (int)textSize.Y;
 
-                textSize = DrawText(_consolas14Bold, _white, offsetX, offsetY, String.Format("Retry: {0}", _gameMemory.Player.Retry.ToString()));
+                textSize = DrawText(_consolas16Bold, _white, offsetX, offsetY, String.Format("Retry: {0}", _gameMemory.Player.Retry.ToString()));
                 offsetY += (int)textSize.Y;
 
-                textSize = DrawText(_consolas14Bold, _white, offsetX, offsetY, String.Format("F.A.S: {0}", _gameMemory.Player.FAS.ToString()));
+                textSize = DrawText(_consolas16Bold, _white, offsetX, offsetY, String.Format("F.A.S: {0}", _gameMemory.Player.FAS.ToString()));
                 offsetY += (int)textSize.Y + yMargin;
             }
 
@@ -438,8 +438,8 @@ namespace SRTPluginUIRECVXDirectXOverlay
                 else
                     textBrush = _white;
 
-                Point textSize = _graphics.MeasureString(_consolas14Bold, entry.Quantity.ToString());
-                _graphics.DrawText(_consolas14Bold, textBrush, cellX, cellY + height - textSize.Y, entry.IsInfinite ? "∞" : entry.Quantity.ToString());
+                Point textSize = _graphics.MeasureString(_consolas16Bold, entry.Quantity.ToString());
+                _graphics.DrawText(_consolas16Bold, textBrush, cellX, cellY + height - textSize.Y, entry.IsInfinite ? "∞" : entry.Quantity.ToString());
             }
         }
 
