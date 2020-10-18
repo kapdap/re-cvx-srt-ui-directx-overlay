@@ -360,14 +360,16 @@ namespace SRTPluginUIRECVXDirectXOverlay
                 textSize = DrawText(_consolas16Bold, _red, offsetX, offsetY, Config.ShowBosses ? "Boss HP" : "Enemy HP");
                 offsetY += (int)textSize.Y + yMargin;
 
+                int index = -1;
+
                 for (int i = 0; i < _gameMemory.Enemy.Length; ++i)
                 {
                     EnemyEntry entry = _gameMemory.Enemy[i];
 
-                    if (entry.IsEmpty || (Config.ShowBosses && !entry.IsBoss)) continue;
+                    if (entry.IsEmpty || (!Config.DebugEnemy && !entry.IsAlive) || (Config.ShowBosses && !entry.IsBoss)) continue;
 
                     int healthX = offsetX;
-                    int healthY = offsetY += i > 0 ? yHeight : 0;
+                    int healthY = offsetY += ++index > 0 ? yHeight : 0;
 
                     DrawProgressBar(_darkergrey, _darkred, healthX, healthY, xWidth, yHeight, entry.DisplayHP, entry.MaximumHP);
                     DrawText(_consolas14Bold, _red, healthX + 5, healthY + 6, Config.DebugEnemy ? entry.DebugMessage : entry.HealthMessage);
@@ -434,7 +436,7 @@ namespace SRTPluginUIRECVXDirectXOverlay
                     textBrush = _white;
 
                 Point textSize = _graphics.MeasureString(_consolas16Bold, entry.Quantity.ToString());
-                _graphics.DrawText(_consolas16Bold, textBrush, cellX, cellY + height - textSize.Y, entry.IsInfinite ? "∞" : entry.Quantity.ToString());
+                DrawText(_consolas16Bold, textBrush, cellX, cellY + height - textSize.Y, entry.IsInfinite ? "∞" : entry.Quantity.ToString());
             }
         }
 
