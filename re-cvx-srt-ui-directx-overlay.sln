@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRTPluginUIRECVXDirectXOver
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRTPluginProviderRECVX", "..\re-cvx-srt-provider\SRTPluginProviderRECVX\SRTPluginProviderRECVX.csproj", "{2393C984-6FEE-466A-8DD8-875D9D6CF51C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRTPluginBase", "..\SRTHost\SRTPluginBase\SRTPluginBase.csproj", "{2A4F6B29-5845-484B-AF44-2AD960835F64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRTPluginBase", "..\..\Squirrelies\SRTHost\SRTPluginBase\SRTPluginBase.csproj", "{2A4F6B29-5845-484B-AF44-2AD960835F64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRTHost", "..\SRTHost\SRTHost\SRTHost.csproj", "{45AA5C4A-A3EF-4BDC-8581-04B4773E1C87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRTHost", "..\..\Squirrelies\SRTHost\SRTHost\SRTHost.csproj", "{45AA5C4A-A3EF-4BDC-8581-04B4773E1C87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
