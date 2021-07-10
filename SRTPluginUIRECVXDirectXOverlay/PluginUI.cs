@@ -315,8 +315,8 @@ namespace SRTPluginUIRECVXDirectXOverlay
             int offsetX = baseX;
             int offsetY = baseY;
 
-            DrawProgressBar(_darkergrey, healthBrush, offsetX, offsetY, xWidth, yHeight, _gameMemory.Player.DisplayHP, _gameMemory.Player.MaximumHP);
-            DrawText(_consolas14Bold, _white, offsetX + 5, offsetY + 6, String.Format("{0} - {1}", _gameMemory.Player.HealthMessage, _gameMemory.Player.StatusName));
+            DrawProgressBar(_darkergrey, healthBrush, offsetX, offsetY, xWidth, yHeight, _gameMemory.Player.DisplayHP, _gameMemory.Player.MaxHP);
+            DrawText(_consolas14Bold, _white, offsetX + 5, offsetY + 6, String.Format("{0} - {1}", _gameMemory.Player.HealthMessage, _gameMemory.Player.StatusMessage));
             
             offsetY += yHeight;
 
@@ -371,7 +371,7 @@ namespace SRTPluginUIRECVXDirectXOverlay
                     int healthX = offsetX;
                     int healthY = offsetY += ++index > 0 ? yHeight : 0;
 
-                    DrawProgressBar(_darkergrey, _darkred, healthX, healthY, xWidth, yHeight, entry.DisplayHP, entry.MaximumHP);
+                    DrawProgressBar(_darkergrey, _darkred, healthX, healthY, xWidth, yHeight, entry.DisplayHP, entry.MaxHP);
                     DrawText(_consolas14Bold, _red, healthX + 5, healthY + 6, Config.DebugEnemy ? entry.DebugMessage : entry.HealthMessage);
                 }
             }
