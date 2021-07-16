@@ -169,6 +169,7 @@ namespace SRTPluginUIRECVXDirectXOverlay
             {
                 _gameMemory = (IGameMemoryRECVX)gameMemory;
                 _gameMemory.Emulator.DetectGameWindowHandle = true;
+                _gameMemory.Emulator.GameWindowTitleFilter = Config.GameWindowTitleFilter;
 
                 if (_isOverlayReady)
                 {

@@ -75,6 +75,13 @@ namespace SRTPluginUIRECVXDirectXOverlay
             set => SetField(ref _debugEnemy, value);
         }
 
+        private string _gameWindowTitleFilter = "";
+        public string GameWindowTitleFilter
+        {
+            get => _gameWindowTitleFilter;
+            set => SetField(ref _gameWindowTitleFilter, value);
+        }
+
         private byte GetRange(byte value, int min, int max)
         {
             value = (byte)Math.Max(value, min);
