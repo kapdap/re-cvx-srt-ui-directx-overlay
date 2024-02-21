@@ -9,14 +9,14 @@
     <Company>Kapdap</Company>
     <Product>Resident Evil: Code: Veronica DirectX Overlay User Interface Plugin</Product>
     <Description>A user-interface plugin to display the values provided by the Resident Evil: Code: Veronica Memory Provider Plugin in a DirectX overlay.</Description>
-    <Copyright>Copyright © 2021 Kapdap</Copyright>
+    <Copyright>Copyright © 2024 Kapdap</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/kapdap/re-cvx-srt-ui-directx-overlay</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>speedrun</PackageTags>
-    <Version>0.9.2.0</Version>
-    <FileVersion>0.9.2.0</FileVersion>
-    <AssemblyVersion>0.9.2.0</AssemblyVersion>
+    <Version>0.9.4.0</Version>
+    <FileVersion>0.9.4.0</FileVersion>
+    <AssemblyVersion>0.9.4.0</AssemblyVersion>
     <LangVersion>latest</LangVersion>
     <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
 	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
