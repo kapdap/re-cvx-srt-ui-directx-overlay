@@ -353,6 +353,9 @@ namespace SRTPluginUIRECVXDirectXOverlay
                 offsetY += (int)textSize.Y;
 
                 textSize = DrawText(_consolas16Bold, _white, offsetX, offsetY, String.Format("F.A.S: {0}", _gameMemory.Player.FAS.ToString()));
+                offsetY += (int)textSize.Y;
+
+                textSize = DrawText(_consolas16Bold, _white, offsetX, offsetY, String.Format(" Rank: {0}", _gameMemory.Rank.Name.ToString()));
                 offsetY += (int)textSize.Y + yMargin;
             }
 
